@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @rate.name %>
+</p>
+
+<p>
+  <b>Rate:</b>
+  <%= @rate.rate %>
+</p>
+
+<p>
+  <b>Amt borrowed:</b>
+  <%= @rate.amt_borrowed %>
+</p>
+
+<p>
+  <b>House:</b>
+  <%= @rate.house_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @rate.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_rate_path(@rate) %> |
+<%= link_to 'Back', rates_path %>

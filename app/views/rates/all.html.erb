@@ -1,0 +1,31 @@
+<h1>Listing rates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Rate</th>
+    <th>Amt borrowed</th>
+    <th>House</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rates.each do |rate| %>
+  <tr>
+    <td><%= rate.name %></td>
+    <td><%= rate.rate %></td>
+    <td><%= rate.amt_borrowed %></td>
+    <td><%= rate.house_id %></td>
+    <td><%= rate.user_id %></td>
+    <td><%= link_to 'Show', rate %></td>
+    <td><%= link_to 'Edit', edit_rate_path(rate) %></td>
+    <td><%= link_to 'Destroy', rate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Rate', new_rate_path %>
