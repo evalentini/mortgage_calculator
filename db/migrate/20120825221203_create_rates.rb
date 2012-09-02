@@ -3,8 +3,8 @@ class CreateRates < ActiveRecord::Migration
     create_table :rates do |t|
       t.string :name
       t.float :rate
-      t.float :amt_borrowed
-      t.integer :house_id
+			t.integer :term
+      t.float :principal
       t.integer :user_id
 
       t.timestamps

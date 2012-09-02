@@ -1,10 +1,11 @@
 <div id="title">Easy Mortgage Calculator</div>
+<form action = "rates/save" method="post">
 <!--hidden input at top of page with # of mortgages-->
 <input type="hidden" readonly="readonly" id="num_mortgage" value=1>
 <div id="container">
 	<div class="row">
-		<div class="cell wide" style="background: white; color: white;">
-		-
+		<div class="cell wide">
+			<button type="submit">Save Rates</button> 
 		</div>
 		<div class="cell narrow" style="background: white; color: white;" loan_number=1>
 		-
@@ -46,8 +47,8 @@
 			-
 			</div>
 			<div class="cell" field="interest_rate" loan_number=1>
-				<input type="text" id="whole_rate" size=1 value="3">.
-				<input type="text" id="frac_rate" size=1 value="00">%
+				<input type="text" id="whole_rate" name="whole_rate[]" size=1 value="3">.
+				<input type="text" id="frac_rate" name="frac_rate[]" size=1 value="00">%
 			</div>
 		</div>
 		<div class="row">
@@ -58,7 +59,7 @@
 			-
 			</div>
 			<div class="cell" field="loan_term" loan_number=1>
-				<input id="loan_term" type="text" size="2" value="30"> yrs
+				<input id="loan_term" name="loan_term[]" type="text" size="2" value="30"> yrs
 			</div>
 		</div>	
 		<div class="row">
@@ -69,8 +70,8 @@
 				$
 			</div>
 			<div class="cell" field="loan_amount" loan_number=1>
-				<input id="principal_thousands" type="text" size=3 value="100">,
-				<input id="principal_singles" type="text" size=3 value="000">
+				<input id="principal_thousands" name="principal_thousands[]" type="text" size=3 value="100">,
+				<input id="principal_singles" name="principal_singles[]" type="text" size=3 value="000">
 			</div>
 		</div>
 	</div>
@@ -83,7 +84,7 @@
 			- 
 			</div>
 			<div class="cell" field="remove_loan_button" loan_number=1>
-				<button loan_number=1>remove loan</button>
+				<button type="button" loan_number=1>remove loan</button>
 			</div>
 		</div>
 		<div class="row">
@@ -94,8 +95,9 @@
 			-
 			</div>
 			<div class="cell" field="add_loan_button" loan_number=1>
-				<button loan_number=1>add loan</button>
+				<button type="button" loan_number=1>add loan</button>
 			</div>
 		</div>
 	</div>
 </div> 
+</form>

@@ -67,5 +67,19 @@ button {
 }
 
 
-
+input#whole_rate {
+	width: 1em;
+}
+input#frac_rate {
+	width: 2em;
+}
+input#loan_term {
+	width: 2em;
+}
+input#principal_thousands {
+	width: 2em;
+}
+input#principal_singles {
+	width: 2em;
+}
 

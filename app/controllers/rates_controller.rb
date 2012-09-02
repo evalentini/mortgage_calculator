@@ -4,11 +4,25 @@ class RatesController < ApplicationController
   def index
 	end
 
-	def fgtest
-	end
-	
-	def csstest
-	end
+	def save
+		# check if logged in 
+		redirect_to :action=> "index" unless session[:user_id].present? 
+		# add new rate objects
+		@rate=[]
+		@term = []
+		@principal = []
+		
+		params[:whole_rate].each_with_index do |val, index| 
+			@rate[index] = (params[:whole_rate][index].to_f + params[:frac_rate][index].to_f/100)/100
+			@term[index] = params[:loan_term][index].to_i
+			@principal[index]=params[:principal_thousands][index].to_i*1000+params[:principal_singles][index].to_i	 
+		end
+
+		#add the rate information to the database
+		Rate.set(@rate, @term, @principal, session[:user_id])	
+		
+	 
+	end	
 
 	def all
     @rates = Rate.all

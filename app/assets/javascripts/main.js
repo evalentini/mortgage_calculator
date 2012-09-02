@@ -92,23 +92,23 @@
 		var new_interest_rate_div = '<div class="cell narrow" style="color: yellow;"'+
 																new_loan_num_attr+' >-</div>'+
 																'<div class="cell" field="interest_rate"'+new_loan_num_attr+'>'+
-																'<input type="text" id="whole_rate" size=1 value="3">.'+
-																'<input type="text" id="frac_rate" size=1 value="00">%</div>';
+																'<input type="text" name="whole_rate[]" id="whole_rate" size=1 value="3">.'+
+																'<input type="text" name="frac_rate[]" id="frac_rate" size=1 value="00">%</div>';
 		$('[field="interest_rate"]['+loan_num_attr+']').after(new_interest_rate_div);
 		
 		//add new loan term
 		var new_loan_term_div	=			'<div class="cell narrow"'+
 																'style="color: yellow;"'+new_loan_num_attr+'>-</div>'+
 																'<div class="cell" field="loan_term"'+new_loan_num_attr+'>'+
-																'<input type="text" id="loan_term" size=2 value="30"> yrs' +
+																'<input type="text" name="loan_term[]" id="loan_term" size=2 value="30"> yrs' +
 																'</div>';
 		$('[field="loan_term"]['+loan_num_attr+']').after(new_loan_term_div);
 		
 		//add new loan amount
 		var new_loan_amount_div =   '<div class="cell narrow"' + new_loan_num_attr+'>$</div>'+
 																'<div class="cell" field="loan_amount"'+new_loan_num_attr+'>'+
-																'<input id="principal_thousands" type="text" size=3 value="100">,'+
-																'<input id="principal_singles" type="text" size=3 value="000">'+
+																'<input id="principal_thousands" name="principal_thousands[]" type="text" size=3 value="100">,'+
+																'<input id="principal_singles" name="principal_singles[]" type="text" size=3 value="000">'+
 																'</div>';
 		$('[field="loan_amount"]['+loan_num_attr+']').after(new_loan_amount_div);
 
@@ -116,7 +116,7 @@
 		var new_remove_loan_button = '<div class="cell narrow"'+
 																 'style="color: white;"'+ new_loan_num_attr+'>-</div>'+
 																 '<div class="cell" field="remove_loan_button"'+new_loan_num_attr+'>'+
-																 '<button '+new_loan_num_attr+'>remove loan</button>'+
+																 '<button type="button" '+new_loan_num_attr+'>remove loan</button>'+
 																 '</div>';
 		$('[field="remove_loan_button"]['+loan_num_attr+']').after(new_remove_loan_button);
 		
@@ -124,7 +124,7 @@
 		var new_add_loan_button =		'<div class="cell narrow" style="color: white;"'+new_loan_num_attr+
 																'>-</div>'+
 																'<div class="cell" field="add_loan_button"'+new_loan_num_attr+'>'+
-																'<button '+new_loan_num_attr+'>add loan</button>'+
+																'<button type="button" '+new_loan_num_attr+'>add loan</button>'+
 																'</div>';
 		$('[field="add_loan_button"]['+loan_num_attr+']').after(new_add_loan_button);
 

@@ -7,6 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<ul class="navbar">
+		<% if session[:user_id].present? %>
+			<li>
+				<%= User.find(session[:user_id]).email + "| " %>
+			</li>
+		<% end %>
+		<li>
+			<% if session[:user_id].present? %>
+				<%= link_to "logout", logout_path %>
+			<% else %>
+				<%= link_to "login", login_path %>
+			<% end %>
+			| 
+		</li>
+		<li>view rates</li>
+	</ul>
 
 <%= yield %>
 
