@@ -82,4 +82,13 @@ input#principal_thousands {
 input#principal_singles {
 	width: 2em;
 }
+#notice {
+	width: 100%;
+	margin: 10px 0 10px 0;
+	border: 1px solid;
+	border-color: red;
+	text-align: center;
+	color: red;
+	font-weight: bold;
+}
 

@@ -8,7 +8,8 @@ MortgageCalculator::Application.routes.draw do
   match 'login' => 'sessions#new', :as => :login
 
 	match 'rates/save' => 'rates#save', :as => :rate_save
-  resources :sessions
+  match 'rates/load' => 'rates#load', :as => :rate_load
+	resources :sessions
 
   resources :rates
 

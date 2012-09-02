@@ -5,9 +5,19 @@ class RatesController < ApplicationController
 	end
 
 	def save
-		# check if logged in 
-		redirect_to :action=> "index" unless session[:user_id].present? 
+		# check if logged in
+		if session[:user_id].nil?
+			# check if we can login using cookies
+			if cookies[:user_id].present? && cookies[:password].present?
+				user = User.authenticate_with_id(cookies[:user_id], cookies[:password])	
+			end
+			unless user.present?
+				flash[:notice]="login error user_id=#{cookies[:user_id]} pwd=#{cookies[:password]}"
+				redirect_to :action => "index"
+			end
+		end 
 		# add new rate objects
+		@user_id=cookies[:user_id]
 		@rate=[]
 		@term = []
 		@principal = []
@@ -19,10 +29,16 @@ class RatesController < ApplicationController
 		end
 
 		#add the rate information to the database
-		Rate.set(@rate, @term, @principal, session[:user_id])	
+		Rate.set(@rate, @term, @principal, @user_id.to_i)	
 		
 	 
 	end	
+	
+	def load
+		redirect_to :action => "index" unless session[:user_id].present?
+		@rates = Rate.find_all_by_user_id(session[:user_id].to_i) 
+		@user_id = session[:user_id].to_i 
+	end 
 
 	def all
     @rates = Rate.all

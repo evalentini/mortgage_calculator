@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 20120902005213) do
   create_table "rates", :force => true do |t|
     t.string   "name"
     t.float    "rate"
-    t.float    "amt_borrowed"
-    t.integer  "house_id"
+    t.integer  "term"
+    t.float    "principal"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
