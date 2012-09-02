@@ -1,0 +1,5 @@
+<p>load rate</p>
+<%= @user_id %>
+<% @rates.each do |rate| %>
+	<br><%= rate.rate %>, <%= rate.term %>, <%= rate.principal %>
+<% end %> 
