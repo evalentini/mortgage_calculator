@@ -8,13 +8,14 @@ class RatesController < ApplicationController
 		# check if logged in
 		if session[:user_id].nil?
 			# check if we can login using cookies
-			if cookies[:user_id].present? && cookies[:password].present?
-				user = User.authenticate_with_id(cookies[:user_id], cookies[:password])	
-			end
-			unless user.present?
-				flash[:notice]="login error user_id=#{cookies[:user_id]} pwd=#{cookies[:password]}"
+			#if cookies[:user_id].present? && cookies[:password].present?
+			#	user = User.authenticate_with_id(cookies[:user_id], cookies[:password])	
+			#end
+			#unless user.present?
+			#	flash[:notice]="login error user_id=#{cookies[:user_id]} pwd=#{cookies[:password]}"
+				flash[:notice]="you must login before you can save rates"
 				redirect_to :action => "index"
-			end
+			# end
 		end 
 		# add new rate objects
 		@user_id=cookies[:user_id]
