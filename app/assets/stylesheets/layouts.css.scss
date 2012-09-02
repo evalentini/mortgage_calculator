@@ -3,10 +3,29 @@ body {
 	font-family: $verdana;
 }
 
+button {
+	@include button(pill);
+	width: 200px;
+}
 #container {
 	width: 1000px;
-	margin: 0 auto;
+	margin: 20px auto;
 /*	background: gray */;
+}
+
+#title {
+	width: 100%;
+	color: white;
+	background: gray;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.cell.loan-column-header {
+	background: white;
+	text-align: center;
+	border: 1px solid black;
+	@include border-radius(6px);	
 }
 
 .rowgroup {
@@ -15,17 +34,38 @@ body {
 	margin-bottom: 5px;
 	@include border-radius(6px);	
 }
+
+.column {
+	float: left;
+	width: 200px;
+	background: gray;		
+}
 .row {
 	/*background: yellow*/;
 	width: 100%;
 	margin: 5px;
 }
 
+.cell.narrow {
+	width: 10px;
+}
+
+.cell.wide {
+	width: 300px;
+}
+
 .cell {
-	background: yellow;
+	/*background: yellow*/;
 	display: inline-block;
-	width: 40%;
+	width: 100px;
 	margin-left: 5px;
 }
+
+button {
+	width: 100px;
+	padding: 3px 3px 5px 3px;
+}
+
+
 
 

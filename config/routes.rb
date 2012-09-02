@@ -5,6 +5,8 @@ MortgageCalculator::Application.routes.draw do
 
   resources :users
 
+	match '/fgtest' => 'rates#fgtest'
+	match '/csstest' => 'rates#csstest'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

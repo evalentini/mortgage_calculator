@@ -1,55 +1,100 @@
-<h1>--</h1>
-<button>test me out</button>
+<div id="title">Easy Mortgage Calculator</div>
+<!--hidden input at top of page with # of mortgages-->
+<input type="hidden" readonly="readonly" id="num_mortgage" value=1>
 <div id="container">
 	<div class="row">
-		<div class="cell">
-			-
+		<div class="cell wide" style="background: white; color: white;">
+		-
 		</div>
-		<div class="cell" style="background: white; ">
+		<div class="cell narrow" style="background: white; color: white;" loan_number=1>
+		-
+		</div>
+		<div class="cell loan-column-header" field="loan_number_label" loan_number=1>
 			Loan 1
 		</div>
 		</div>
 	<div class="rowgroup">
 		<div class="row">
-			<div class="cell">
+			<div class="cell wide">
 				monthly payment:
+			</div>
+			<div class="cell narrow" loan_number=1>
+			$
 			</div> 
-			<div class="cell" >
-				$<span id="pmt1">dummy</span>
+			<div class="cell" field="pmt" loan_number=1 >
+				-
 			</div>
 		</div>
 		<div class="row">
-			<div class="cell">
+			<div class="cell wide">
 				extra cost vs lowest payment option:
 			</div>
-			<div class="cell"> 
-				$<input type="text" readonly="readonly" value="0" size=3>
+			<div class="cell narrow" loan_number=1>
+				$
+			</div>
+			<div class="cell" field="extra_cost" loan_number=1> 
+				-
 			</div>
 		</div>
 	</div>
 	<div class="rowgroup">
 		<div class="row">
-			<div class="cell">
+			<div class="cell wide">
 				interest rate:
 			</div>
-			<div class="cell">
-				<input type="text" id="whole_rate1" size=1 value="3">.<input type="text" id="frac_rate1" size=1 value="00">%
+			<div class="cell narrow" style="color: yellow;" loan_number=1>
+			-
+			</div>
+			<div class="cell" field="interest_rate" loan_number=1>
+				<input type="text" id="whole_rate" size=1 value="3">.
+				<input type="text" id="frac_rate" size=1 value="00">%
 			</div>
 		</div>
 		<div class="row">
-			<div class="cell">
+			<div class="cell wide">
 				loan term (years):
 			</div>
-			<div class="cell">
-				<input id="term1" type="text" size="2" value="30"> yrs
+			<div class="cell narrow" style="color: yellow;" loan_number=1>
+			-
+			</div>
+			<div class="cell" field="loan_term" loan_number=1>
+				<input id="loan_term" type="text" size="2" value="30"> yrs
 			</div>
 		</div>	
 		<div class="row">
-			<div class="cell">
+			<div class="cell wide">
 				loan amount:
 			</div>
-			<div class="cell">
-				$<input id="principal_thousands1" type="text" size=3 value="100">,<input id="principal_singles1" type="text" size=3 value="000">
+			<div class="cell narrow" loan_number=1>
+				$
+			</div>
+			<div class="cell" field="loan_amount" loan_number=1>
+				<input id="principal_thousands" type="text" size=3 value="100">,
+				<input id="principal_singles" type="text" size=3 value="000">
+			</div>
+		</div>
+	</div>
+	<div class="rowgroup" style="background: white;">
+		<div class="row">
+			<div class="cell wide" style="color: white;">
+				-
+			</div>
+			<div class="cell narrow" style="color: white;" loan_number=1>
+			- 
+			</div>
+			<div class="cell" field="remove_loan_button" loan_number=1>
+				<button loan_number=1>remove loan</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="cell wide" style="color: white">
+			-
+			</div>
+			<div class="cell narrow" style="color: white;" loan_number=1>
+			-
+			</div>
+			<div class="cell" field="add_loan_button" loan_number=1>
+				<button loan_number=1>add loan</button>
 			</div>
 		</div>
 	</div>

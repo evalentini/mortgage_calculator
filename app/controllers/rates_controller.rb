@@ -3,6 +3,13 @@ class RatesController < ApplicationController
   # GET /rates.json
   def index
 	end
+
+	def fgtest
+	end
+	
+	def csstest
+	end
+
 	def all
     @rates = Rate.all
 
