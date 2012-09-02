@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
 			cookies[:user_id] = user.id
 			cookies[:password] = params[:password]
-      redirect_to_target_or_default root_url, :notice => "Logged in successfully."
+      redirect_to root_url, :notice => "Logged in successfully."
     else
       flash.now[:alert] = "Invalid login or password."
       render :action => 'new'
