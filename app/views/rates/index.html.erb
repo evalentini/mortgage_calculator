@@ -10,9 +10,11 @@
         <ul id="instructions">
           <li>Use this handy app to calculate how much you can save with a new mortgage</li>
           <li>Enter the information for your current mortgage in the column labeled "Current Mortgage"</li>
-          <li>Click "Add New Mortgage" button at the bottom of the screen</li>
-          <li>Enter the information for the new mortgage in the new column that appears after you click "Add New Mortgage"</li>
-          <li>See the amount you could save in the row labeled "Your Savings:"</li> 
+          <li>Click "Add New Mortgage" (bottom of screen) to see how your new mortgage offer compares to your current mortgage</li>
+          <li>If you want to compare more than 1 new mortgage offer, just click "Add New Mortgage" again</li>
+          <li>See the amount you could save 
+              <span style="font-weight: bold; text-decoration:underline;">every month </span>
+          in the row labeled "Your Monthly Savings:"</li> 
         </ul>
       </div>
     </div>
@@ -47,7 +49,7 @@
 		</div>
 		<div class="row" style="margin-left: 5px;">
 			<div class="cell wide">
-				Your Savings:
+				Your Monthly Savings:
 			</div>
 			<div class="cell narrow" loan_number=1>
 				$
@@ -103,7 +105,7 @@
 			- 
 			</div>
 			<div class="cell" field="remove_loan_button" loan_number=1>
-				<button type="button" class="btn" loan_number=1>Remove</button>
+				<button type="button" id = "current-remove-button" class="btn" loan_number=1>Remove</button>
 			</div>
 		</div>
 		<div class="row inbody">

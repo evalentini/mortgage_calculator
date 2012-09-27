@@ -57,6 +57,9 @@
 	
     //check to make sure there is at least 1 loan
     if ($('div[field="loan_number_label"]').length == 1) return 0;
+
+    //check to make sure the loan is not the current loan
+    if ($(this).attr("id")=="current-remove-button") return 0; 
     	
 		//get the loan number that was clicked
 		var loan_number=parseInt($(this).attr("loan_number"));
@@ -183,9 +186,13 @@
 				var i_pmt=parseInt($('div[loan_number="'+i+'"][field="pmt"]').text());
 				min_pmt = (i_pmt<min_pmt) ? i_pmt : min_pmt;
 			}
+
+      //instead of comparing to min payment, compare to current loan
+      var current_pmt = parseInt($('div[loan_number="1"][field="pmt"]').text());
 			for (i=1; i<=max_num; i++) {
 				var i_pmt=parseInt($('div[loan_number="'+i+'"][field="pmt"]').text());
-				var diff=i_pmt-min_pmt;
+				//var diff=i_pmt-min_pmt; //(OLD)
+        var diff=current_pmt-i_pmt;  //(NEW)
 				$('div[field="extra_cost"][loan_number="'+i+'"]').text(diff);
 			}
 		}
