@@ -24,22 +24,40 @@
 		//if we want to remove a loan we have to start with lowest # and work up
 		if (num_change>0) {
 			for (i=current_num; i>=start_num; i--) {
-				$('[field="loan_number_label"][loan_number='+i+']').text("loan "+(i+num_change));
+				$('[field="loan_number_label"][loan_number='+i+']').text("Mortgage Offer "+(i+num_change-1));
 				$('[loan_number='+i+']').attr("loan_number", i+num_change);		
 			} 
 		}
 		else {
 			for (i=start_num; i<=current_num; i++) {
-				$('[field="loan_number_label"][loan_number='+i+']').text("loan "+(i+num_change));
+				$('[field="loan_number_label"][loan_number='+i+']').text("Mortgage Offer "+(i+num_change-1));
 				$('[loan_number='+i+']').attr("loan_number", i+num_change);		
 			}
 		}
 		return 1;
 	}
+
+  /////////////////////////CODE FOR HIDING/SHOWING INSTRUCTIONS//////////////
+  $('button#hide-instructions-button').live('click',function() {
+    var btn_text = $(this).text();
+    if (btn_text=="Hide Instructions") {
+      $('ul#instructions').hide();
+      $(this).text("Show Instructions");
+      return 0;
+    }
+    if (btn_text=="Show Instructions") {
+      $('ul#instructions').show();
+      $(this).text("Hide Instructions");
+      return 0;
+    } 
+  });
 	
 	/////////////////////////CODE FOR REMOVING A LOAN//////////////////////////
 	$('div[field="remove_loan_button"] button').live('click', function() {
-		
+	
+    //check to make sure there is at least 1 loan
+    if ($('div[field="loan_number_label"]').length == 1) return 0;
+    	
 		//get the loan number that was clicked
 		var loan_number=parseInt($(this).attr("loan_number"));
 		
@@ -53,6 +71,9 @@
 	//////////////////////////CODE FOR ADDING A LOAN///////////////////////////
 
 	$('div[field="add_loan_button"] button').live('click',function() {
+
+    //make sure we have fewer than 5 loans (any more will screw up formatting)
+    if ($('div[field="loan_number_label"]').length>=5) return 0; 
 
 		//get the loan number that was clicked 
 		var loan_number=parseInt($(this).attr("loan_number"));
@@ -71,7 +92,7 @@
 										'style="background: white; color: white;"'+
 										new_loan_num_attr+'>-</div>'+
 										'<div class="cell loan-column-header" field="loan_number_label"'+
-										new_loan_num_attr+'>Loan '+new_loan_number+'</div>';
+										new_loan_num_attr+'>Mortgage Offer '+loan_number+'</div>';
 
 		$('[field="loan_number_label"]['+loan_num_attr+']').after(next_label);
 
@@ -116,7 +137,7 @@
 		var new_remove_loan_button = '<div class="cell narrow"'+
 																 'style="color: white;"'+ new_loan_num_attr+'>-</div>'+
 																 '<div class="cell" field="remove_loan_button"'+new_loan_num_attr+'>'+
-																 '<button type="button" '+new_loan_num_attr+'>remove loan</button>'+
+																 '<button class="btn" type="button" '+new_loan_num_attr+'>Remove</button>'+
 																 '</div>';
 		$('[field="remove_loan_button"]['+loan_num_attr+']').after(new_remove_loan_button);
 		
@@ -124,7 +145,7 @@
 		var new_add_loan_button =		'<div class="cell narrow" style="color: white;"'+new_loan_num_attr+
 																'>-</div>'+
 																'<div class="cell" field="add_loan_button"'+new_loan_num_attr+'>'+
-																'<button type="button" '+new_loan_num_attr+'>add loan</button>'+
+																'<button class="btn" type="button" '+new_loan_num_attr+'>Add New Mortgage</button>'+
 																'</div>';
 		$('[field="add_loan_button"]['+loan_num_attr+']').after(new_add_loan_button);
 

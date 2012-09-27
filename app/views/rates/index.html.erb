@@ -1,24 +1,42 @@
-<div id="title">Easy Mortgage Calculator</div>
 <form action = "rates/save" method="post">
 <!--hidden input at top of page with # of mortgages-->
 <input type="hidden" readonly="readonly" id="num_mortgage" value=1>
 <div id="container">
 	<div class="row">
-		<div class="cell wide">
-			<button type="submit">Save Rates</button>
-			<%= link_to "Load Rates", rate_load_path %>
-		</div>
+    <div class="row">
+      <div class="alert">
+        <button type="button" class="btn btn-primary" id="hide-instructions-button" style="float: right; width: 20%;">Hide Instructions</button>
+        <h3>Instructions</h3>
+        <ul id="instructions">
+          <li>Use this handy app to calculate how much you can save with a new mortgage</li>
+          <li>Enter the information for your current mortgage in the column labeled "Current Mortgage"</li>
+          <li>Click "Add New Mortgage" button at the bottom of the screen</li>
+          <li>Enter the information for the new mortgage in the new column that appears after you click "Add New Mortgage"</li>
+          <li>See the amount you could save in the row labeled "Your Savings:"</li> 
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+        <div class="btn-group" style="float: right;">
+          <button type="submit" class="btn">Save Offers</button>
+          <button type="button" class="btn">Open Saved</button>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 25px;">
+    <div class="cell wide" style="background: white; color: white;">
+    -
+    </div>
 		<div class="cell narrow" style="background: white; color: white;" loan_number=1>
 		-
 		</div>
 		<div class="cell loan-column-header" field="loan_number_label" loan_number=1>
-			Loan 1
+			Current Mortgage
 		</div>
 		</div>
-	<div class="rowgroup">
-		<div class="row">
+	<div class="row rowgroup">
+		<div class="row" style="margin-left: 5px;">
 			<div class="cell wide">
-				monthly payment:
+				Monthly Payment:
 			</div>
 			<div class="cell narrow" loan_number=1>
 			$
@@ -27,9 +45,9 @@
 				-
 			</div>
 		</div>
-		<div class="row">
+		<div class="row" style="margin-left: 5px;">
 			<div class="cell wide">
-				extra cost vs lowest payment option:
+				Your Savings:
 			</div>
 			<div class="cell narrow" loan_number=1>
 				$
@@ -39,10 +57,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="rowgroup">
-		<div class="row">
+	<div class="row rowgroup">
+		<div class="row inbody">
 			<div class="cell wide">
-				interest rate:
+				Interest Rate:
 			</div>
 			<div class="cell narrow" style="color: yellow;" loan_number=1>
 			-
@@ -52,9 +70,9 @@
 				<input type="text" id="frac_rate" name="frac_rate[]" size=1 value="00">%
 			</div>
 		</div>
-		<div class="row">
+		<div class="row inbody">
 			<div class="cell wide">
-				loan term (years):
+				Mortgage Term (years):
 			</div>
 			<div class="cell narrow" style="color: yellow;" loan_number=1>
 			-
@@ -63,9 +81,9 @@
 				<input id="loan_term" name="loan_term[]" type="text" size="2" value="30"> yrs
 			</div>
 		</div>	
-		<div class="row">
+		<div class="row inbody">
 			<div class="cell wide">
-				loan amount:
+				Mortgage Amount:
 			</div>
 			<div class="cell narrow" loan_number=1>
 				$
@@ -76,8 +94,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="rowgroup" style="background: white;">
-		<div class="row">
+	<div class="rowgroup row" style="background: white;">
+		<div class="row inbody">
 			<div class="cell wide" style="color: white;">
 				-
 			</div>
@@ -85,10 +103,10 @@
 			- 
 			</div>
 			<div class="cell" field="remove_loan_button" loan_number=1>
-				<button type="button" loan_number=1>remove loan</button>
+				<button type="button" class="btn" loan_number=1>Remove</button>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row inbody">
 			<div class="cell wide" style="color: white">
 			-
 			</div>
@@ -96,9 +114,10 @@
 			-
 			</div>
 			<div class="cell" field="add_loan_button" loan_number=1>
-				<button type="button" loan_number=1>add loan</button>
+				<button type="button" class="btn" loan_number=1>Add New Mortgage</button>
 			</div>
 		</div>
 	</div>
 </div> 
 </form>
+</div>

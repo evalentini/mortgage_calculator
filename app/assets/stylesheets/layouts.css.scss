@@ -1,6 +1,5 @@
 body {
 	font-size: 14px;
-	font-family: $verdana;
 }
 
 button {
@@ -24,15 +23,18 @@ button {
 .cell.loan-column-header {
 	background: white;
 	text-align: center;
-	border: 1px solid black;
+	border: 2px solid black;
 	@include border-radius(6px);	
+  font-weight: bold;
 }
 
 .rowgroup {
+
+  @include linear-gradient(#fff132,#f2eb2e); 
 	background: yellow;
-	border: 1px solid black;
+	border: 2px solid black;
 	margin-bottom: 5px;
-	@include border-radius(6px);	
+	@include border-radius(6px);
 }
 
 .column {
@@ -91,4 +93,9 @@ input#principal_singles {
 	color: red;
 	font-weight: bold;
 }
+
+.row.inbody {
+  margin-left: 5px;
+}
+
 
